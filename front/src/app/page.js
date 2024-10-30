@@ -1,4 +1,5 @@
 "use client";
+import Item from "@/Components/Item/Item";
 import Navbar from "@/Components/Navbar/Navbar";
 import Cart from "@/Pages/Cart";
 import LoginSignup from "@/Pages/LoginSignup";
@@ -24,6 +25,7 @@ export default function Home() {
           <Route path=".login" element={<LoginSignup />} />
         </Routes>
       </BrowserRouter>
+      <Item/>
     </div>
   );
 }
