@@ -1,4 +1,5 @@
 "use client";
+import Footer from "@/Components/Footer/footer";
 import Navbar from "@/Components/Navbar/Navbar";
 import Cart from "@/Pages/Cart";
 import LoginSignup from "@/Pages/LoginSignup";
@@ -23,6 +24,7 @@ export default function Home() {
           <Route path="/cart" element={<Cart />} />
           <Route path=".login" element={<LoginSignup />} />
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </div>
   );
