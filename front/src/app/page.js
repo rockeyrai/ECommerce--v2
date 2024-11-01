@@ -15,9 +15,9 @@ export default function Home() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Shop />} />
-          <Route path="/mens" element={<ShopCategory category="mens" />} />
-          <Route path="/womens" element={<ShopCategory category="womens" />} />
-          <Route path="/kids" element={<ShopCategory category="kids" />} />     
+          <Route path="/mens" element={<ShopCategory banner={"banner_mens.png"} category="men" />} />
+          <Route path="/womens" element={<ShopCategory banner={"banner_women.png"} category="women" />} />
+          <Route path="/kids" element={<ShopCategory banner={"banner_kids.png"} category="kid" />} />     
           <Route path="product" element={<Product />}>
             <Route path=":productId" element={<product />} />
           </Route>
