@@ -3,7 +3,7 @@ let all_product = [
     id: 1,
     name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
     category: "women",
-    image: "/product_1.png", // Make sure this is a string
+    image: "/product_1.png", // Updated path
     new_price: 50.0,
     old_price: 80.5,
   },
@@ -11,7 +11,7 @@ let all_product = [
     id: 2,
     name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
     category: "women",
-    image: "/product_2.png",
+    image: "/product_2.png", // Updated path
     new_price: 85.0,
     old_price: 120.5,
   },
@@ -19,7 +19,7 @@ let all_product = [
     id: 3,
     name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
     category: "women",
-    image: "product_3.png",
+    image: "/product_3.png", // Updated path
     new_price: 60.0,
     old_price: 100.5,
   },
@@ -27,7 +27,7 @@ let all_product = [
     id: 4,
     name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
     category: "women",
-    image: "product_4.png",
+    image: "/product_4.png", // Updated path
     new_price: 100.0,
     old_price: 150.0,
   },
@@ -35,7 +35,7 @@ let all_product = [
     id: 5,
     name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
     category: "women",
-    image: "product_5.png",
+    image: "/product_5.png", // Updated path
     new_price: 85.0,
     old_price: 120.5,
   },
@@ -43,7 +43,7 @@ let all_product = [
     id: 6,
     name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
     category: "women",
-    image: "product_6.png",
+    image: "/product_6.png", // Updated path
     new_price: 85.0,
     old_price: 120.5,
   },
@@ -51,7 +51,7 @@ let all_product = [
     id: 7,
     name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
     category: "women",
-    image: "product_7.png",
+    image: "/product_7.png", // Updated path
     new_price: 85.0,
     old_price: 120.5,
   },
@@ -59,7 +59,7 @@ let all_product = [
     id: 8,
     name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
     category: "women",
-    image: "product_8.png",
+    image: "/product_8.png", // Updated path
     new_price: 85.0,
     old_price: 120.5,
   },
@@ -67,7 +67,7 @@ let all_product = [
     id: 9,
     name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
     category: "women",
-    image: "product_9.png",
+    image: "/product_9.png", // Updated path
     new_price: 85.0,
     old_price: 120.5,
   },
@@ -75,7 +75,7 @@ let all_product = [
     id: 10,
     name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
     category: "women",
-    image: "product_10.png",
+    image: "/product_10.png", // Updated path
     new_price: 85.0,
     old_price: 120.5,
   },
@@ -83,7 +83,7 @@ let all_product = [
     id: 11,
     name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
     category: "women",
-    image: "product_11.png",
+    image: "/product_11.png", // Updated path
     new_price: 85.0,
     old_price: 120.5,
   },
@@ -91,7 +91,7 @@ let all_product = [
     id: 12,
     name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
     category: "women",
-    image: "product_12.png",
+    image: "/product_12.png", // Updated path
     new_price: 85.0,
     old_price: 120.5,
   },
@@ -99,7 +99,7 @@ let all_product = [
     id: 13,
     name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
     category: "men",
-    image: "product_13.png",
+    image: "/product_13.png", // Updated path
     new_price: 85.0,
     old_price: 120.5,
   },
@@ -107,7 +107,7 @@ let all_product = [
     id: 14,
     name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
     category: "men",
-    image: "product_14.png",
+    image: "/product_14.png", // Updated path
     new_price: 85.0,
     old_price: 120.5,
   },
@@ -115,7 +115,7 @@ let all_product = [
     id: 15,
     name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
     category: "men",
-    image: "product_15.png",
+    image: "/product_15.png", // Updated path
     new_price: 85.0,
     old_price: 120.5,
   },
@@ -123,7 +123,7 @@ let all_product = [
     id: 16,
     name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
     category: "men",
-    image: "product_16.png",
+    image: "/product_16.png", // Updated path
     new_price: 85.0,
     old_price: 120.5,
   },
@@ -131,7 +131,7 @@ let all_product = [
     id: 17,
     name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
     category: "men",
-    image: "product_17.png",
+    image: "/product_17.png", // Updated path
     new_price: 85.0,
     old_price: 120.5,
   },
@@ -139,7 +139,7 @@ let all_product = [
     id: 18,
     name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
     category: "men",
-    image: "product_18.png",
+    image: "/product_18.png", // Updated path
     new_price: 85.0,
     old_price: 120.5,
   },
@@ -147,7 +147,7 @@ let all_product = [
     id: 19,
     name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
     category: "men",
-    image: "product_19.png",
+    image: "/product_19.png", // Updated path
     new_price: 85.0,
     old_price: 120.5,
   },
@@ -155,7 +155,7 @@ let all_product = [
     id: 20,
     name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
     category: "men",
-    image: "product_20.png",
+    image: "/product_20.png", // Updated path
     new_price: 85.0,
     old_price: 120.5,
   },
@@ -163,7 +163,7 @@ let all_product = [
     id: 21,
     name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
     category: "men",
-    image: "product_21.png",
+    image: "/product_21.png", // Updated path
     new_price: 85.0,
     old_price: 120.5,
   },
@@ -171,7 +171,7 @@ let all_product = [
     id: 22,
     name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
     category: "men",
-    image: "product_22.png",
+    image: "/product_22.png", // Updated path
     new_price: 85.0,
     old_price: 120.5,
   },
@@ -179,7 +179,7 @@ let all_product = [
     id: 23,
     name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
     category: "men",
-    image: "product_23.png",
+    image: "/product_23.png", // Updated path
     new_price: 85.0,
     old_price: 120.5,
   },
@@ -187,7 +187,7 @@ let all_product = [
     id: 24,
     name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
     category: "men",
-    image: "product_24.png",
+    image: "/product_24.png", // Updated path
     new_price: 85.0,
     old_price: 120.5,
   },
@@ -195,7 +195,7 @@ let all_product = [
     id: 25,
     name: "Boys Orange Colourblocked Hooded Sweatshirt",
     category: "kid",
-    image: "product_25.png",
+    image: "/product_25.png", // Updated path
     new_price: 85.0,
     old_price: 120.5,
   },
@@ -203,7 +203,7 @@ let all_product = [
     id: 26,
     name: "Boys Orange Colourblocked Hooded Sweatshirt",
     category: "kid",
-    image: "product_26.png",
+    image: "/product_26.png", // Updated path
     new_price: 85.0,
     old_price: 120.5,
   },
@@ -211,7 +211,7 @@ let all_product = [
     id: 27,
     name: "Boys Orange Colourblocked Hooded Sweatshirt",
     category: "kid",
-    image: "product_27.png",
+    image: "/product_27.png", // Updated path
     new_price: 85.0,
     old_price: 120.5,
   },
@@ -219,7 +219,7 @@ let all_product = [
     id: 28,
     name: "Boys Orange Colourblocked Hooded Sweatshirt",
     category: "kid",
-    image: "product_28.png",
+    image: "/product_28.png", // Updated path
     new_price: 85.0,
     old_price: 120.5,
   },
@@ -227,7 +227,7 @@ let all_product = [
     id: 29,
     name: "Boys Orange Colourblocked Hooded Sweatshirt",
     category: "kid",
-    image: "product_29.png",
+    image: "/product_29.png", // Updated path
     new_price: 85.0,
     old_price: 120.5,
   },
@@ -235,7 +235,7 @@ let all_product = [
     id: 30,
     name: "Boys Orange Colourblocked Hooded Sweatshirt",
     category: "kid",
-    image: "product_30.png",
+    image: "/product_30.png", // Updated path
     new_price: 85.0,
     old_price: 120.5,
   },
@@ -243,7 +243,7 @@ let all_product = [
     id: 31,
     name: "Boys Orange Colourblocked Hooded Sweatshirt",
     category: "kid",
-    image: "product_31.png",
+    image: "/product_31.png", // Updated path
     new_price: 85.0,
     old_price: 120.5,
   },
@@ -251,7 +251,7 @@ let all_product = [
     id: 32,
     name: "Boys Orange Colourblocked Hooded Sweatshirt",
     category: "kid",
-    image: "product_32.png",
+    image: "/product_32.png", // Updated path
     new_price: 85.0,
     old_price: 120.5,
   },
@@ -259,7 +259,7 @@ let all_product = [
     id: 33,
     name: "Boys Orange Colourblocked Hooded Sweatshirt",
     category: "kid",
-    image: "product_33.png",
+    image: "/product_33.png", // Updated path
     new_price: 85.0,
     old_price: 120.5,
   },
@@ -267,7 +267,7 @@ let all_product = [
     id: 34,
     name: "Boys Orange Colourblocked Hooded Sweatshirt",
     category: "kid",
-    image: "product_34.png",
+    image: "/product_34.png", // Updated path
     new_price: 85.0,
     old_price: 120.5,
   },
@@ -275,7 +275,7 @@ let all_product = [
     id: 35,
     name: "Boys Orange Colourblocked Hooded Sweatshirt",
     category: "kid",
-    image: "product_35.png",
+    image: "/product_35.png", // Updated path
     new_price: 85.0,
     old_price: 120.5,
   },
@@ -283,7 +283,7 @@ let all_product = [
     id: 36,
     name: "Boys Orange Colourblocked Hooded Sweatshirt",
     category: "kid",
-    image: "product_36.png",
+    image: "/product_36.png", // Updated path
     new_price: 85.0,
     old_price: 120.5,
   },

@@ -1,5 +1,6 @@
 'use client';
 import Breadcrums from '@/Components/Breadcrums/breadcrums';
+import ProductDisplay from '@/Components/ProductDisplay/productdisplay';
 import { ShopContext } from '@/Context/shopcontext';
 import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
@@ -17,6 +18,7 @@ const Product = () => {
   return (
     <div>
       <Breadcrums product={product} />
+      <ProductDisplay product={product} />
     </div>
   );
 }
