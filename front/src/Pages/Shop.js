@@ -9,11 +9,11 @@ import React from "react";
 const Shop = () => {
   return (
     <div>
-      <Hero /> 
-   <Popular/> 
-   <Offers/> 
-       <NewCollection/>
-       <NewsLetter/>
+      <Hero />
+      <Popular />
+      <Offers />
+      <NewCollection />
+      <NewsLetter />
     </div>
   );
 };

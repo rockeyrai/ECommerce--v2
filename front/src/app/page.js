@@ -22,7 +22,7 @@ export default function Home() {
             <Route path=":productId" element={<product />} />
           </Route>
           <Route path="/cart" element={<Cart />} />
-          <Route path=".login" element={<LoginSignup />} />
+          <Route path="/login" element={<LoginSignup/>} />
         </Routes>
         <Footer/>
       </BrowserRouter>
