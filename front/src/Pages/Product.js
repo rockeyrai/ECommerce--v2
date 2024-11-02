@@ -1,6 +1,8 @@
 'use client';
 import Breadcrums from '@/Components/Breadcrums/breadcrums';
+import DescriptoinBox from '@/Components/DescriptionsBox/descriptoinbox';
 import ProductDisplay from '@/Components/ProductDisplay/productdisplay';
+import RelatedProducts from '@/Components/RelatedProducts/relatedproducts';
 import { ShopContext } from '@/Context/shopcontext';
 import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
@@ -19,6 +21,8 @@ const Product = () => {
     <div>
       <Breadcrums product={product} />
       <ProductDisplay product={product} />
+      <DescriptoinBox/>
+      <RelatedProducts/>
     </div>
   );
 }
