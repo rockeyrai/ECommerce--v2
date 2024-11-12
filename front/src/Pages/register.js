@@ -1,16 +1,20 @@
-// LoginSignup.js
 "use client";
 
 import React, { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
-import { Link } from "react-router-dom";
 
 // Validation schema for the form
 const validationSchema = Yup.object().shape({
+  name: Yup.string()
+    .min(2, "Name must be at least 2 characters")
+    .required("Name is required"),
   email: Yup.string()
     .email("Invalid email address")
     .required("Email is required"),
+  phone: Yup.string()
+    .matches(/^[0-9]{10}$/, "Phone number must be 10 digits")
+    .required("Phone number is required"),
   password: Yup.string()
     .min(8, "Password must be at least 8 characters")
     .matches(/[a-zA-Z]/, "Password must contain at least one letter")
@@ -18,23 +22,23 @@ const validationSchema = Yup.object().shape({
     .required("Password is required"),
 });
 
-const LoginSignup = () => {
+const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
       <div className="w-full max-w-md bg-white rounded-lg shadow-md p-6">
         <div className="text-center mb-6">
-          <h2 className="text-2xl font-bold">Login</h2>
+          <h2 className="text-2xl font-bold">Register</h2>
           <p className="text-gray-600 mt-2">
-            Enter your credentials to access your account
+            Create an account to access our services
           </p>
         </div>
         <Formik
-          initialValues={{ email: "", password: "" }}
+          initialValues={{ name: "", email: "", phone: "", password: "" }}
           validationSchema={validationSchema}
           onSubmit={(values, { setSubmitting }) => {
-            console.log("Login attempt", values);
+            console.log("Registration attempt", values);
             setTimeout(() => {
               alert(JSON.stringify(values, null, 2));
               setSubmitting(false);
@@ -43,9 +47,28 @@ const LoginSignup = () => {
         >
           {({ errors, touched, isSubmitting }) => (
             <Form className="space-y-4">
+              {/* Name Field */}
+              <fieldset className="space-y-2">
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                  Name
+                </label>
+                <Field
+                  id="name"
+                  name="name"
+                  type="text"
+                  placeholder="Enter your name"
+                  className="w-full p-2 border rounded"
+                  aria-invalid={errors.name && touched.name ? "true" : "false"}
+                />
+                {errors.name && touched.name && (
+                  <p className="text-sm text-red-500" role="alert">
+                    {errors.name}
+                  </p>
+                )}
+              </fieldset>
+
               {/* Email Field */}
               <fieldset className="space-y-2">
-                <legend className="sr-only">Email</legend>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                   Email
                 </label>
@@ -64,9 +87,28 @@ const LoginSignup = () => {
                 )}
               </fieldset>
 
+              {/* Phone Number Field */}
+              <fieldset className="space-y-2">
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+                  Phone Number
+                </label>
+                <Field
+                  id="phone"
+                  name="phone"
+                  type="text"
+                  placeholder="Enter your phone number"
+                  className="w-full p-2 border rounded"
+                  aria-invalid={errors.phone && touched.phone ? "true" : "false"}
+                />
+                {errors.phone && touched.phone && (
+                  <p className="text-sm text-red-500" role="alert">
+                    {errors.phone}
+                  </p>
+                )}
+              </fieldset>
+
               {/* Password Field */}
               <fieldset className="space-y-2">
-                <legend className="sr-only">Password</legend>
                 <label htmlFor="password" className="block text-sm font-medium text-gray-700">
                   Password
                 </label>
@@ -96,25 +138,22 @@ const LoginSignup = () => {
                 )}
               </fieldset>
 
-              {/* Submit Button */}
               <button
                 type="submit"
                 className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700 disabled:opacity-50"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "Logging in..." : "Log in"}
+                {isSubmitting ? "Registering..." : "Register"}
               </button>
             </Form>
           )}
         </Formik>
-        
-        {/* Link to Register Page */}
         <div className="mt-4 text-center">
           <p className="text-sm text-gray-600">
-            Don't have an account?{" "}
-            <Link to="/register" className="text-blue-600 hover:underline">
-              Sign up
-            </Link>
+            Already have an account?{" "}
+            <a href="/login" className="text-blue-600 hover:underline">
+              Log in
+            </a>
           </p>
         </div>
       </div>
@@ -122,4 +161,4 @@ const LoginSignup = () => {
   );
 };
 
-export default LoginSignup;
+export default Register;

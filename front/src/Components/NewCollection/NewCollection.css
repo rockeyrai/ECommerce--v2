@@ -3,7 +3,8 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  height: 90vh;
+  height: 200vh;
+  padding-top: 50px;
 }
 
 .new-collections h1{
@@ -21,7 +22,8 @@
 
 .collections{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr ;
   margin-top: 50px;
-  gap: 30px;
+  gap: 45px;
+
 }

@@ -1,13 +1,13 @@
 .newsletter{
-  width: 65%;
-  height: 40vh;
+  width: 100wh;
+  height: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: auto;
-  padding: 0 140px;
-  background: linear-gradient(180deg, #fde1ff 0%, #e1ffea22 60%);
+  /* background: linear-gradient(180deg, #fde1ff 0%, #e1ffea22 60%); */
+  background-color: yellow;
   gap: 20px;
 }
 

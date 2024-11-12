@@ -1,12 +1,12 @@
 .offers{
-  width: 65%;
-  height: 60h;
+  width: 80wh;
+  height: 100vh;
   display: flex;
   margin: auto;
   padding: 0 140px;
-  margin-bottom: 150px;
-  background: linear-gradient(180deg, #fde1ff 0%, #e1ffea22 0%  );
+  background: linear-gradient(180deg, #fde1ff 100%, #e1ffea22 0%  );
 }
+
 
 .offers-left{
   flex: 1;
@@ -30,7 +30,6 @@
   color: white;
   font-size: 22px;
   font-weight: 500;
-  margin-top: 30px;
   cursor: pointer;
 }
 
@@ -39,5 +38,4 @@
   display: flex;
   align-items: center;
   justify-content: 50px;
-  padding-top: 50px;
 }

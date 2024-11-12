@@ -1,26 +1,30 @@
 .productdisplay{
   display: flex;
-  margin: 0px 170px;
+  margin: 0px 150px;
+
 }
 
 .productdisplay-left{
   display: flex;
-  gap: 17px;
+  gap: 10px;
+
 }
 
 .productdisplay-img-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 10px;
+
 }
 
 .productdisplay-img-list img{
-  height: 163px;
+  height: 100px;
+  width: 100px;
 }
 
 .productdisplay-main-img{
   width: 586px;
-  height: 700px;
+  height: 440;
 }
 
 .productdisplay-right{
