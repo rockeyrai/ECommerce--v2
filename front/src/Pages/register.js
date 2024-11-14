@@ -3,6 +3,9 @@
 import React, { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
+import axios from "axios"; // Import axios for HTTP requests
+import { toast, ToastContainer } from "react-toastify"; // Import toast for notifications
+import 'react-toastify/dist/ReactToastify.css'; // Import CSS for toast
 
 // Validation schema for the form
 const validationSchema = Yup.object().shape({
@@ -37,12 +40,16 @@ const Register = () => {
         <Formik
           initialValues={{ name: "", email: "", phone: "", password: "" }}
           validationSchema={validationSchema}
-          onSubmit={(values, { setSubmitting }) => {
-            console.log("Registration attempt", values);
-            setTimeout(() => {
-              alert(JSON.stringify(values, null, 2));
-              setSubmitting(false);
-            }, 400);
+          onSubmit={async (values, { setSubmitting }) => {
+            try {
+              const response = await axios.post('http://localhost:8000/register', values);
+              toast.success("Registration Successful: Your account has been created successfully.");
+              console.log()
+            } catch (error) {
+              console.error("Registration failed:", error); // Log for debugging
+              toast.error("Registration Failed: Something went wrong. Please try again.");
+            }
+            setSubmitting(false);
           }}
         >
           {({ errors, touched, isSubmitting }) => (
@@ -157,6 +164,7 @@ const Register = () => {
           </p>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

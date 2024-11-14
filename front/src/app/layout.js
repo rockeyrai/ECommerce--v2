@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import ShopCategory from "@/Pages/ShopCategory";
 import ShopContextProvider from "@/Context/shopcontext";
+import { Toaster } from "@/Components/ui/toaster";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
       >
         <ShopContextProvider>
           {children}
+          <Toaster />
         </ShopContextProvider>
       </body>
     </html>

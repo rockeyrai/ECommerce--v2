@@ -19,7 +19,7 @@ export default function Home() {
           <Route path="/mens" element={<ShopCategory banner={"banner_mens.png"} category="men" />} />
           <Route path="/womens" element={<ShopCategory banner={"banner_women.png"} category="women" />} />
           <Route path="/kids" element={<ShopCategory banner={"banner_kids.png"} category="kid" />} />     
-          <Route path="product" element={<Product />}>
+          <Route path="/product" element={<Product />}>
             <Route path=":productId" element={<product />} />
           </Route>
           <Route path="/cart" element={<Cart />} />
