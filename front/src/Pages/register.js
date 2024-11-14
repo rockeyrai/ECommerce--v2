@@ -44,13 +44,24 @@ const Register = () => {
             try {
               const response = await axios.post('http://localhost:8000/register', values);
               toast.success("Registration Successful: Your account has been created successfully.");
-              console.log()
             } catch (error) {
-              console.error("Registration failed:", error); // Log for debugging
-              toast.error("Registration Failed: Something went wrong. Please try again.");
+              // Check if error.response exists and contains the error message from the backend
+              if (error.response) {
+                if (error.response.status === 409) {
+                  // If the email already exists, show the backend error message
+                  toast.error(error.response.data.msg);
+                } else {
+                  // If some other error occurred, show a generic error message
+                  toast.error("Registration Failed: Something went wrong. Please try again.");
+                }
+              } else {
+                // If there was no response (network issue, etc.), show a fallback error message
+                toast.error("Network error. Please check your connection.");
+              }
             }
             setSubmitting(false);
           }}
+          
         >
           {({ errors, touched, isSubmitting }) => (
             <Form className="space-y-4">
