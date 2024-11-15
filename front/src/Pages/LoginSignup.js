@@ -1,10 +1,12 @@
-// LoginSignup.js
 "use client";
 
 import React, { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // Use useNavigate from react-router-dom
+import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 // Validation schema for the form
 const validationSchema = Yup.object().shape({
@@ -20,6 +22,7 @@ const validationSchema = Yup.object().shape({
 
 const LoginSignup = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
@@ -33,13 +36,24 @@ const LoginSignup = () => {
         <Formik
           initialValues={{ email: "", password: "" }}
           validationSchema={validationSchema}
-          onSubmit={(values, { setSubmitting }) => {
-            console.log("Login attempt", values);
-            setTimeout(() => {
-              alert(JSON.stringify(values, null, 2));
-              setSubmitting(false);
-            }, 400);
+          onSubmit={async (values) => {
+            try {
+              const { data } = await axios.post('http://localhost:8000/login', values);
+              console.log(data);  // Check what the response contains
+              const { isLoggedIn, user } = data;
+              if (isLoggedIn) {
+                console.log("Navigating to homepage");  // Debugging log
+                navigate(`/`);  // Navigate to home page
+              }
+              if (data.msg) {
+                toast.success(data.msg);
+              }
+            } catch (error) {
+              console.error("Login error:", error);
+              toast.error(error?.response?.data?.msg || "Login failed. Please try again.");
+            }
           }}
+          
         >
           {({ errors, touched, isSubmitting }) => (
             <Form className="space-y-4">
@@ -118,6 +132,7 @@ const LoginSignup = () => {
           </p>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
