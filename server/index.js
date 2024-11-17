@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const multer = require('multer');
+const path = require('path')
 require('dotenv').config();
 
 const saltRounds = 10;
@@ -16,8 +18,6 @@ if (!process.env.SECRET_KEY) {
 
 // Connect to MongoDB
 mongoose.connect('mongodb://127.0.0.1:27017/test', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
 })
   .then(() => console.log('Connected to MongoDB'))
   .catch(error => console.error('Connection error:', error));
@@ -35,18 +35,6 @@ const User = mongoose.model('User', userSchema);
 // Middleware
 app.use(express.json());
 app.use(cors());
-
-// Authentication Middleware to Protect Routes
-const authenticateToken = (req, res, next) => {
-  const token = req.headers['authorization']?.split(" ")[1];
-  if (!token) return res.status(401).send({ msg: "Access Denied!" });
-
-  jwt.verify(token, process.env.SECRET_KEY, (err, user) => {
-    if (err) return res.status(403).send({ msg: "Invalid Token!" });
-    req.user = user;
-    next();
-  });
-};
 
 // Route to create a new user (Register)
 app.post('/register', async (req, res) => {
@@ -103,11 +91,24 @@ app.post('/login', async (req, res) => {
   }
 });
 
-// Example of a Protected Route
-app.get('/protected', authenticateToken, (req, res) => {
-  res.send({ msg: 'This is a protected route', user: req.user });
+
+const storage = multer.diskStorage({
+  destination: './upload/images',
+  filename: (req, file, cb) => {
+    cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`);
+  }
 });
 
+const upload = multer({storage:storage})
+
+//creating upload endpoin for images
+app.use('/images',express.static('upload/images'))
+app.post("/upload",upload.single('product'),(req,res)=>{
+  res.json({
+    success:1,
+    image_url:`http://localhost:${port}/images/${req.file.filename}`
+  })
+})
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
