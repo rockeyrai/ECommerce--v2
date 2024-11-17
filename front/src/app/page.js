@@ -7,7 +7,11 @@ import Product from "@/Pages/Product";
 import Register from "@/Pages/register";
 import Shop from "@/Pages/Shop";
 import ShopCategory from "@/Pages/ShopCategory";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import dynamic from 'next/dynamic';
+import { Route, Routes } from "react-router-dom";
+
+// Dynamically import BrowserRouter
+const BrowserRouter = dynamic(() => import("react-router-dom").then((mod) => mod.BrowserRouter), { ssr: false });
 
 export default function Home() {
   return (
@@ -20,7 +24,7 @@ export default function Home() {
           <Route path="/womens" element={<ShopCategory banner={"banner_women.png"} category="women" />} />
           <Route path="/kids" element={<ShopCategory banner={"banner_kids.png"} category="kid" />} />     
           <Route path="/product" element={<Product />}>
-            <Route path=":productId" element={<product />} />
+            <Route path=":productId" element={<Product />} />
           </Route>
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<LoginSignup/>} />

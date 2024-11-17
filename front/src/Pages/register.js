@@ -6,16 +6,17 @@ import * as Yup from "yup";
 import axios from "axios"; // Import axios for HTTP requests
 import { toast, ToastContainer } from "react-toastify"; // Import toast for notifications
 import 'react-toastify/dist/ReactToastify.css'; // Import CSS for toast
+import { Link,useNavigate } from "react-router-dom";
 
 // Validation schema for the form
 const validationSchema = Yup.object().shape({
-  name: Yup.string()
-    .min(2, "Name must be at least 2 characters")
-    .required("Name is required"),
+  fullName: Yup.string()
+    .min(2, "Full Name must be at least 2 characters")
+    .required("Full Name is required"),
   email: Yup.string()
     .email("Invalid email address")
     .required("Email is required"),
-  phone: Yup.string()
+  phoneNumber: Yup.string()
     .matches(/^[0-9]{10}$/, "Phone number must be 10 digits")
     .required("Phone number is required"),
   password: Yup.string()
@@ -27,6 +28,7 @@ const validationSchema = Yup.object().shape({
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
@@ -38,49 +40,50 @@ const Register = () => {
           </p>
         </div>
         <Formik
-          initialValues={{ name: "", email: "", phone: "", password: "" }}
+          initialValues={{
+            fullName: "", // Change name to fullName
+            email: "",
+            phoneNumber: "", // Change phone to phoneNumber
+            password: "",
+          }}
           validationSchema={validationSchema}
           onSubmit={async (values, { setSubmitting }) => {
+            console.log(values)
             try {
               const response = await axios.post('http://localhost:8000/register', values);
               toast.success("Registration Successful: Your account has been created successfully.");
             } catch (error) {
-              // Check if error.response exists and contains the error message from the backend
               if (error.response) {
                 if (error.response.status === 409) {
-                  // If the email already exists, show the backend error message
                   toast.error(error.response.data.msg);
                 } else {
-                  // If some other error occurred, show a generic error message
                   toast.error("Registration Failed: Something went wrong. Please try again.");
                 }
               } else {
-                // If there was no response (network issue, etc.), show a fallback error message
                 toast.error("Network error. Please check your connection.");
               }
             }
             setSubmitting(false);
           }}
-          
         >
           {({ errors, touched, isSubmitting }) => (
             <Form className="space-y-4">
-              {/* Name Field */}
+              {/* Full Name Field */}
               <fieldset className="space-y-2">
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                  Name
+                <label htmlFor="fullName" className="block text-sm font-medium text-gray-700">
+                  Full Name
                 </label>
                 <Field
-                  id="name"
-                  name="name"
+                  id="fullName"
+                  name="fullName"
                   type="text"
-                  placeholder="Enter your name"
+                  placeholder="Enter your full name"
                   className="w-full p-2 border rounded"
-                  aria-invalid={errors.name && touched.name ? "true" : "false"}
+                  aria-invalid={errors.fullName && touched.fullName ? "true" : "false"}
                 />
-                {errors.name && touched.name && (
+                {errors.fullName && touched.fullName && (
                   <p className="text-sm text-red-500" role="alert">
-                    {errors.name}
+                    {errors.fullName}
                   </p>
                 )}
               </fieldset>
@@ -107,20 +110,20 @@ const Register = () => {
 
               {/* Phone Number Field */}
               <fieldset className="space-y-2">
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+                <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700">
                   Phone Number
                 </label>
                 <Field
-                  id="phone"
-                  name="phone"
+                  id="phoneNumber"
+                  name="phoneNumber"
                   type="text"
                   placeholder="Enter your phone number"
                   className="w-full p-2 border rounded"
-                  aria-invalid={errors.phone && touched.phone ? "true" : "false"}
+                  aria-invalid={errors.phoneNumber && touched.phoneNumber ? "true" : "false"}
                 />
-                {errors.phone && touched.phone && (
+                {errors.phoneNumber && touched.phoneNumber && (
                   <p className="text-sm text-red-500" role="alert">
-                    {errors.phone}
+                    {errors.phoneNumber}
                   </p>
                 )}
               </fieldset>
@@ -169,9 +172,9 @@ const Register = () => {
         <div className="mt-4 text-center">
           <p className="text-sm text-gray-600">
             Already have an account?{" "}
-            <a href="/login" className="text-blue-600 hover:underline">
-              Log in
-            </a>
+            <Link to="/login" className="text-blue-600 hover:underline">
+              Login
+            </Link>
           </p>
         </div>
       </div>
