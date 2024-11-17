@@ -6,7 +6,8 @@ const cors = require('cors');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const multer = require('multer');
-const path = require('path')
+const path = require('path');
+const { boolean } = require('yup');
 require('dotenv').config();
 
 const saltRounds = 10;
@@ -91,6 +92,7 @@ app.post('/login', async (req, res) => {
   }
 });
 
+//product data and database
 
 const storage = multer.diskStorage({
   destination: './upload/images',
@@ -109,6 +111,62 @@ app.post("/upload",upload.single('product'),(req,res)=>{
     image_url:`http://localhost:${port}/images/${req.file.filename}`
   })
 })
+
+//schema for creatign products
+const Product = mongoose.model("Product",{
+  id:{
+    type:Number,
+    required:true
+  },
+  name:{
+    type:String,
+    required:true
+  },
+  image:{
+    type:String,
+    required:true
+  },
+  category:{
+    type:String,
+    required:true
+  },
+  new_price:{
+    type:Number,
+    required:true
+  },
+  old_price:{
+    type:Number,
+    required:true
+  },
+  date:{
+    type:Date,
+    default:Date.now
+  },
+  avilable:{
+    type:Boolean,
+    default:true
+  }
+})
+
+//endpoint for the product
+app.post('/addproduct',async(req,res)=>{
+  const product= new Product({
+    id:req.body.id,
+    name:req.body.name,
+    image:req.body.image,
+    category:req.body.category,
+    new_price:req.body.new_price,
+    old_price:req.body.old_price,
+  })
+  console.log(product)
+  await product.save()
+  res.json({
+    success:true,
+    name:req.body.name
+
+  })
+})
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
