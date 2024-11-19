@@ -6,7 +6,6 @@ This is my second iteration of building an e-commerce platform, crafted with the
 <pre>
 ECommerce--v2
 │
-├── backend
 │
 ├── front
 │   ├── public (all used images and logos)
@@ -55,22 +54,20 @@ ECommerce--v2
 
 **Phase 1: Core E-commerce Functionality**
 - **User Authentication and Authorization**
-  - [ ] **User Registration**
-    - [ ] **Role**: Admin, Customer (fields: email, password, role, fullName, phoneNumber, address)
-    - [ ] **Password Encryption**: Secure user passwords
-    - [ ] **Register API**: Create new users via API
+  - [x] **User Registration**
+    - [x] **Role**:  Customer (fields: email, password, fullName, phoneNumber)
+    - [x] **Password Encryption**: Secure user passwords
+    - [x] **Register API**: Create new users via API
     - [x] **Register Form**: UI for user registration
-  - [ ] **Login**
-    - [ ] Email-based multi-user login
-    - [ ] **Password Verification**: Ensure secure login
-    - [ ] **Login API**: Authenticate users
+  - [x] **Login**
+    - [x] Email-based multi-user login
+    - [x] **Password Verification**: Ensure secure login
+    - [x] **Login API**: Authenticate users
     - [x] **Login Form**: UI for user login
-    - [ ] **Generate Token (JWT)**: Secure session token generation
+    - [x] **Generate Token (JWT)**: Secure session token generation
 
 - **Admin Dashboard**
-  - [ ] **Product Management**: Add, update, delete products
-  - [ ] **Category Management**: Add, update, delete product categories
-  - [ ] **Order Management**: Approve and update order statuses
+  - [x] **Product Management**: Add, update, delete products
   - [ ] **Inventory Management**: Track stock levels and restocking
   - [ ] **User Management**: Approve/ban user accounts
 
