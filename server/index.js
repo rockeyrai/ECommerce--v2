@@ -94,14 +94,14 @@ app.post('/login', async (req, res) => {
 
 //product data and database
 
-// const storage = multer.diskStorage({
-//   destination: './upload/images',
-//   filename: (req, file, cb) => {
-//     cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`);
-//   }
-// });
+const storage = multer.diskStorage({
+  destination: './upload/images',
+  filename: (req, file, cb) => {
+    cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`);
+  }
+});
 
-// const upload = multer({storage:storage})
+const upload = multer({storage:storage})
 
 //creating upload endpoin for images
 app.use('/images',express.static('upload/images'))
