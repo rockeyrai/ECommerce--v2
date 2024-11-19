@@ -63,3 +63,11 @@
   font-size: 16px;
   font-weight: 500;
 }
+
+@media(max-width:800px){
+  .add-product{
+    width: auto;
+    padding: 30px;
+    margin: 20px;
+  }
+}
