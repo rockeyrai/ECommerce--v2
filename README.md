@@ -46,6 +46,23 @@ ECommerce--v2
 │       └── app
 │
 └── server
+    |
+    ├── src
+    │   ├── controllers
+    │   │   ├── authController.js
+    │   │   └── productController.js
+    │   ├── database
+    │   │   └── connection.js
+    │   ├── modules
+    │   │   ├── product.js
+    │   │   └── user.js
+    │   ├── routes
+    │   │   ├── authRoutes.js
+    │   │   ├── cartRoutes.js
+    │   │   └── productRoutes.js
+    │   └── index.js
+    ├── upload
+    └── .env
 </pre>
 
 
