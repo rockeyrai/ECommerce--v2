@@ -3,7 +3,6 @@ import "./ListProduct.css";
 
 const ListProduct = () => {
   const [allproducts, setAlProducts] = useState([]);
-
   const fetchInfo = async () => {
     try {
       const res = await fetch("http://localhost:8000/allproducts");
@@ -13,11 +12,9 @@ const ListProduct = () => {
       console.error("Error fetching products:", error);
     }
   };
-
   useEffect(() => {
     fetchInfo();
   }, []);
-
   const remove_product = async (id) => {
     try {
       const response = await fetch("http://localhost:8000/removeproduct", {
@@ -28,17 +25,14 @@ const ListProduct = () => {
         },
         body: JSON.stringify({ id: id }),
       });
-
       if (!response.ok) {
         throw new Error("Failed to remove product");
       }
-
       await fetchInfo(); // Refresh the product list
     } catch (error) {
       console.error("Error removing product:", error);
     }
   };
-
   return (
     <div className="list-product">
       <h1>All Product List</h1>

@@ -34,60 +34,65 @@ const AddProduct = () => {
     image: Yup.mixed().required("Product image is required"),
   });
 
-  const onSubmit = async (values, { resetForm }) => {
-    console.log(values);
-  
-    let responsedData;
-  
-    // Create FormData and append the image
-    let formData = new FormData();
-    formData.append("product", values.image);
-  
-    try {
-      // Send the image to the backend
-      const response = await fetch("http://localhost:8000/upload", {
+const onSubmit = async (values, { resetForm }) => {
+  console.log(values);
+
+  let responsedData;
+
+  // Create FormData and append the image
+  let formData = new FormData();
+  formData.append("product", values.image);
+
+  try {
+    // Send the image to the backend
+    const response = await fetch("http://localhost:8000/upload", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+      },
+      body: formData,
+    });
+
+    responsedData = await response.json();
+    console.log('Image upload response:', responsedData);
+
+    if (responsedData.success) {
+      const product = {
+        ...values,
+        image: responsedData.image_url, // Use the uploaded image URL
+      };
+
+      // Save the product in the database
+      const productResponse = await fetch("http://localhost:8000/addproduct", {
         method: "POST",
         headers: {
-          Accept: "application/json",
+          "Content-Type": "application/json",
         },
-        body: formData,
+        body: JSON.stringify(product),
       });
-      responsedData = await response.json();
-  
-      if (responsedData.success) {
-        const product = {
-          ...values,
-          image: responsedData.image_url, // Use the uploaded image URL
-        };
-  
-        // Save the product in the database
-        const productResponse = await fetch("http://localhost:8000/addproduct", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(product),
-        });
-  
-        const productData = await productResponse.json();
-  
-        if (productData.success) {
-          console.log("Product added:", productData);
-          alert("Product added successfully!");
-  
-          // Clear the form fields
-          resetForm();
-          setPreviewImage(null);
-        } else {
-          alert("Failed to add product.");
-        }
+
+      const productData = await productResponse.json();
+      console.log('Product save response:', productData);
+
+      if (productData.success) {
+        console.log("Product added:", productData);
+        alert("Product added successfully!");
+
+        // Clear the form fields
+        resetForm();
+        setPreviewImage(null);
+      } else {
+        alert("Failed to add product.");
       }
-    } catch (error) {
-      console.error("Error during submission:", error);
-      alert("An error occurred while adding the product.");
     }
-  };
-  
+  } catch (error) {
+    console.error("Error during submission:", error);
+    alert("An error occurred while adding the product.");
+  }
+};
+
+
+
   const handleImagePreview = (file) => {
     setPreviewImage(file ? URL.createObjectURL(file) : null);
   };
